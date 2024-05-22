@@ -1,3 +1,5 @@
+// Validar formulário de cadastro
+
 $(document).ready(function(){
     $('#my-form').validate({
         rules: {
@@ -83,6 +85,56 @@ function validarSenhaDiferente() {
 
 function validarForm() {
     if (validarSenha() && validarSenhaDiferente()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+// Validar formulário de alteração de senha
+
+function validarAlteracao(){
+    let senha = document.getElementById('novaSenha1').value;
+    let status = document.getElementById('statusNovaSenha1');
+
+    let numeros = /([0-9])/;
+    let letraMin = /([a-z])/;
+    let letraMai = /([A-Z])/;
+    let chEspeciais = /([~,!,@,#,$,%,^,&,*,-,_,+,=,?,>,<])/;
+
+    if (numeros.test(senha) && (letraMin.test(senha)) && (letraMai.test(senha)) && (chEspeciais.test(senha))
+        && senha.length > 6
+    ) {
+        status.textContent='Senha forte';
+        status.style.color='green';
+        return true;
+    } else if (numeros.test(senha) && (letraMin.test(senha)) && (letraMai.test(senha))) {
+        status.textContent='Senha média';
+        status.style.color='orange';
+        return true;
+    } else {
+        status.textContent='Senha fraca';
+        status.style.color='red';
+        return false;
+    }
+}
+
+function validarAlteracaoDiferente(){
+    let senha1 = document.getElementById('novaSenha1').value;
+    let senha2 = document.getElementById('novaSenha2').value;
+    let status = document.getElementById('statusNovaSenha2');
+
+    if (senha2 != senha1) {
+        status.textContent='Senhas diferentes';
+        return false;
+    } else {
+        status.textContent="";
+        return true;
+    }
+}
+
+function validarAlteracaoForm(){
+    if(validarAlteracao() && validarAlteracaoDiferente()){
         return true;
     } else {
         return false;

@@ -25,7 +25,6 @@
         <input type="text" name="senha2" id="senha2" onkeyup="validarSenhaDiferente()">
         <span id="statusSenha2"></span><br>
         <br><br>
-
         <button name="btn-cadastrar">Cadastrar</button>
     </form>
     <script src="script.js"></script>
