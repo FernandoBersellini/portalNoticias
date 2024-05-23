@@ -32,6 +32,8 @@
                 $senhaBanco = $row['senha'];
                 $emailBanco = $row['email'];
 
+                echo " $emailBanco e $senhaBanco";
+
                 if (password_verify($senha,$senhaBanco)) {
                     session_start();
 
