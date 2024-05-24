@@ -6,7 +6,8 @@
     $sql = "DELETE FROM noticias WHERE idNoticia = $id";
 
     if (mysqli_query($conexao, $sql)) { 
-        echo "Certo";
+        echo "Excluido com sucesso";
+        header("Refresh: 2; URL=editarNoticia.php");
     } else {
         echo "Errrado";
     }

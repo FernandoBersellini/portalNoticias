@@ -21,7 +21,7 @@
         </tr>
 
         <?php 
-            $sql = "SELECT titulo,resumo,descricao,imagem,autor.nome FROM noticias INNER JOIN autor ON autor.idAutor = noticias.idAutor";
+            $sql = "SELECT idNoticia,titulo,resumo,descricao,imagem,autor.nome FROM noticias INNER JOIN autor ON autor.idAutor = noticias.idAutor";
         
             $resultadoSql = mysqli_query($conexao,$sql);
 
@@ -52,9 +52,13 @@
                             ?>
                         </td>
                         <td>
-                            <a href="excluirNoticia.php?id=<?php echo $row["idNoticia"]; ?>
-                            "onclick="return confirm('Você tem certeza que desja excluir?')">
-                            <img src="imagens/excluir.png" alt="Excluir funcionário">
+                            <a href="excluirNoticia.php?id=<?php echo $row['idNoticia'];?>"onclick="return confirm('Você tem certeza que desja excluir?')">
+                            <img src="imagens/excluir.png" alt="Excluir notícia">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="alterarNoticia.php?id=<?php echo $row['idNoticia'];?>">
+                                <img src="imagens/editar.png" alt="">
                             </a>
                         </td>
                     </tr>

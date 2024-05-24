@@ -16,6 +16,7 @@
             <th>Sobrenome</th>
             <th>Email</th>
             <th>Telefone</th>
+            <th colspan="2">Ações</th>
         </tr>
 
         <?php
@@ -47,6 +48,16 @@
                             <?php
                                 echo $row['telefone'];    
                             ?>
+                        </td>
+                        <td>
+                            <a href="excluirAutor.php?id=<?php echo $row['idAutor'];?>"onclick="return confirm('Você tem certeza que deseja excluir esse autor?')">
+                                <img src="imagens/excluir.png" alt="">
+                            </a>
+                        </td>
+                        <td>
+                            <a href="alterarAutor.php?id=<?php echo $row['idAutor'];?>">
+                                <img src="imagens/editar.png" alt="">
+                            </a>
                         </td>
                     </tr>
                <?php }
