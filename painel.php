@@ -17,7 +17,7 @@
             $senhaBanco = $row['senha'];
         }
 
-        echo "<h1>Bem-vindo, $nomeBanco</h1>";
+        // echo "<h1>Bem-vindo, $nomeBanco</h1>";
 ?>
         <!DOCTYPE html>
         <html lang="en">
@@ -28,43 +28,47 @@
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
             <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+            <link rel="stylesheet" href="reset.css">
+            <link rel="stylesheet" href="stylePainel.css">
         </head>
-        <body>
+        <body class="menuADM">
            <nav>
-            <<a href="painel.php">Menu</a>
+            <h1>Menu</h1>
+            <h1>Cadastrar</h1>
             <ul>
-                <ul>
-                    <h1>Cadastrar</h1>
-                    <li>
-                        <a href="cadastrar.php">Adm</a>
-                    </li>
-                    <li>
-                        <a href="cadastrarAutor.php">Autor</a>
-                    </li>
-                    <li>
-                        <a href="cadastrarNoticia.php">Notícia</a>
-                    </li>
-                </ul>
-                <ul>
-                    <h1>Gerenciar</h1>
-                    <li>
-                        <a href="editarAutor.php">Autores</a>
-                    </li>
-                    <li>
-                        <a href="editarNoticia.php">Notícias</a>
-                    </li>
-                </ul>
+                <li>
+                    <a href="cadastrarADM.php">ADM</a>
+                </li>
+                <li>
+                    <a href="cadastrarAutor.php">Autor</a>
+                </li>
+                <li>
+                    <a href="cadastrarNoticia.php">Noticia</a>
+                </li>
+            </ul>
+            <h1>Gerenciar</h1>
+            <ul>
+                <li>
+                    <a href="editarAutor.php">Autor</a>
+                </li>
+                <li>
+                    <a href="editarNoticia.php">Notícia</a>
+                </li>
+            </ul>
+            <h1>Outras opções</h1>
+            <ul>
                 <li>
                     <a href="alterarSenha.php">Alterar senha</a>
                 </li>
+                <li>
+                    <a href="logout.php">Sair</a>
+                </li>
             </ul>
-           </nav>
+           </nav>     
+    </body>
+    </html>
     <?php    
-        echo "<a href='logout.php'>Sair</a>";
     } else {
         header("location:login.php");
     }?>
-            
-        </body>
-        </html>
     

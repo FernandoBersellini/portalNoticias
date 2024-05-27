@@ -8,10 +8,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="stylePainel.css">
     </head>
     <body>
-        <h1>Mudar senha</h1>
-        <form action="" method="post" onsubmit="return validarAlteracaoForm()">
+        <form action="" method="post" onsubmit="return validarAlteracaoForm()" id="mudar-Senha" class="formPainel">
+            <h1>Mudar senha</h1>
             <label for="">Nova senha</label><br>
             <input type="text" name="novaSenha1" id="novaSenha1" onkeyup="validarAlteracao()"><br>
             <span id="statusNovaSenha1"></span><br>

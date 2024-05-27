@@ -10,10 +10,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="stylePainel.css">
 </head>
-<body>
-    <h1>Alterar notícia</h1>
-    <form action="" method="post" enctype="multipart/form-data">
+<body class="formSozinho">
+    <form action="" class="formPainel" method="post" enctype="multipart/form-data">
+        <h1>Alterar notícia</h1>
         <label for="">Título</label><br><br>
         <input type="text" name="titulo" id="titulo"><br><br>
         <label for="">Resumo</label><br><br>

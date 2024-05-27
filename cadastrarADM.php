@@ -1,5 +1,5 @@
 <?php
-    require('conexao.php');
+    require('painel.php');
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="stylePainel.css">
 </head>
-<body class="formSozinho">
+<body>
     <form action="" method="post" id="my-form" class="formPainel" onsubmit="return validarForm()">
         <h1>Cadastrar novo ADM</h1>
         <label for="">Nome</label>

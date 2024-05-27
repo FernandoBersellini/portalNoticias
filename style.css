@@ -47,7 +47,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url(imagens/floresta.jpg);
+    /* background-image: url(imagens/floresta.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 1;
@@ -56,17 +56,17 @@ header {
     height: auto;
 
 }
-
+  
 .mainNews h1 {
     font-family: "Playfair Display", serif;
-    color: white;
+    color: black;
     font-size: 25px;
     font-weight: bold;
 }
 
 .mainNews p {
     font-family: "Playfair Display", serif;
-    color: white;
+    color: black;
     font-size: 15px;
 }
 

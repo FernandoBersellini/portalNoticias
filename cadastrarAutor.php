@@ -8,19 +8,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="stylePainel.css">
 </head>
 <body>
-    <div id="cadastro-autor">
-        <h1>Cadastrar autor</h1>
-        <form action="" method="post" id="form-autor">
-            <label for="">Nome</label><br>
-            <input type="text" name="nome" id="nome"><br><br>
-            <label for="">Sobrenome</label><br>
-            <input type="text" name="sobrenome" id="sobrenome"><br><br>
-            <label for="">Email</label><br>
-            <input type="text" name="email" id="email"><br><br>
-            <label for="">Telefone</label><br>
-            <input type="text" name="telefone" id="telefoneAutor"><br><br>
+    <form action="" method="post" class="formPainel">
+            <h1>Cadastrar autor</h1>
+            <label for="">Nome</label>
+            <input type="text" name="nome" id="nome">
+            <label for="">Sobrenome</label>
+            <input type="text" name="sobrenome" id="sobrenome">
+            <label for="">Email</label>
+            <input type="text" name="email" id="email">
+            <label for="">Telefone</label>
+            <input type="text" name="telefone" id="telefoneAutor">
             <button name="btn-cadastrar-autor">Cadastrar</button>
             </form>
             <script src="script.js"></script>
@@ -40,6 +41,5 @@
                     }
                 }
             ?>    
-    </div>
 </body>
 </html>

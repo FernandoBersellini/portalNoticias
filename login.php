@@ -8,9 +8,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="stylePainel.css">
 </head>
-<body>
-    <form action="" method="post">
+<body class="formSozinho">
+    <form action="" method="post" class="formPainel">
+        <h1>Logar</h1>
         <input type="text" name="email" id="email" placeholder="Email"><br><br>
         <input type="text" name="senha" id="senha" placeholder="Senha"><br><br>
         <button name="btn-entrar">Entrar</button>

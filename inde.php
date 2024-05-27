@@ -14,6 +14,7 @@
             <div class="wrapper-login">
                 <img src="imagens/user.png" alt="">
                 <a href="login.php">Entrar</a>
+                <a href="cadastrar.php">Cadastrar</a>
             </div>
         </div>
     </header>
