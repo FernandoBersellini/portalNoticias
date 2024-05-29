@@ -39,10 +39,11 @@
                     }
                 ?>
             </select>
-            <br><br>
-            <br><br>
             <button name="btn-cadastrar-noticia">Cadastrar</button>
         </form>
+
+           
+
     <?php
         if(isset($_POST['btn-cadastrar-noticia'])){
             $titulo = $_POST['titulo'];

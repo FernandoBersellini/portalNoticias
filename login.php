@@ -17,6 +17,7 @@
         <input type="text" name="email" id="email" placeholder="Email"><br><br>
         <input type="text" name="senha" id="senha" placeholder="Senha"><br><br>
         <button name="btn-entrar">Entrar</button>
+        <button name="btn-voltar"><a href="inde.php">Voltar a página inicial</a></button>
     </form>
 </body>
 </html>
