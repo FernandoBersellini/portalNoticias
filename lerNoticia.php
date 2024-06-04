@@ -43,13 +43,13 @@
                     alt=""
                 >
 
-                <h1>
+                <h1 id="title">
                     <?php
                         echo $row['titulo'];
                     ?>
                 </h1>
 
-                <h2>
+                <h2 id="subTitle">
                     <?php
                         echo $row['resumo'];
                     ?>

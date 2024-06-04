@@ -18,26 +18,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-    .gallery_product
-    {
-        margin-bottom: 30px;
-    }
-
-    .gallery_product .title
-    {
-        color:#fff;
-        margin: 0;
-        position:relative;
-        bottom:50px;
-        left:10px;
-    }
-    
-    .gallery_product .title small
-    {
-        display:block;
-    }
-    </style>
 </head>
 <body>
     <header>
@@ -59,27 +39,47 @@
         <div class="featuredNewsWrapper">
             <div class="featuredNews">
                 <div class="mainNews"> 
-                    <div class="row">
-                        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe ">
-                            <a data-toggle="modal" data-target="#exampleModal" href="#">
-                                <img src="imagens/floresta.jpg" class="img-responsive">
-                            </a>
-                            <h4 class="title">Título <small>Sub título</small></h4>
-                        </div>
-                    </div>
+                    <h1>
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum deleniti quaerat ex. Ut debitis, quaerat, sint, odio tempore asperiores praesentium excepturi dolorum amet cumque iusto repellendus placeat numquam cupiditate autem!
+                    </h1>
+
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique quae sunt id vel fuga necessitatibus eius, reprehenderit sequi tempore harum cupiditate voluptates amet! Cumque expedita, amet assumenda illum totam autem!
+                    </p>
                 </div>
+
                 <div class="importantNews">
                     <div id="news1">
-                        aaa
+                        <h1>
+                            aaa
+                        </h1>
+                        <p>
+                            aaa
+                        </p>
                     </div>
                     <div id="news2">
-                        aaa
+                        <h1>
+                            aaa
+                        </h1>
+                        <p>
+                            aaa
+                        </p>
                     </div>
                     <div id="news3">
-                        aaa
+                        <h1>
+                            aaaaa
+                        </h1>
+                        <p>
+                            aaaaa
+                        </p>
                     </div>
                     <div id="news4">
-                        aaa
+                        <h1>
+                            aaa
+                        </h1>
+                        <p>
+                            aaa
+                        </p>
                     </div>
                 </div>
             </div>

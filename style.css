@@ -57,6 +57,7 @@ p {
 .featuredNewsWrapper {
     display: flex;
     justify-content: center;
+
 }
 
 .featuredNews {
@@ -69,10 +70,36 @@ p {
 }
 
 .mainNews {
-    background-color: blueviolet;
+    position: relative;
     height: 80%;
     width: 40%;
     margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.mainNews::before {
+    content: "";
+    background-image: url(imagens/floresta.jpg);
+    background-size: cover;
+    position: absolute;
+    opacity: 0.75;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+.mainNews h1 {
+    position: relative;
+    color: #ffffff;
+}
+
+.mainNews p {
+    position: relative;
+    color: #ffffff;
 }
 
 .importantNews {
@@ -86,28 +113,137 @@ p {
 }
 
 #news1 {
-    background-color: blue;
     grid-column-start: 1;
     grid-row-start: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    gap: 10px;
+}
+
+#news1::before {
+    content: "";
+    background-image: url(imagens/floresta.jpg);
+    background-size: cover;
+    position: absolute;
+    opacity: 0.75;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+#news1 h1 {
+    position: relative;
+    color: #ffffff;
+}
+
+#news1 p {
+    position: relative;
+    font-size: 13px;
+    color: #ffffff;
 }
 
 #news2 {
-    background-color: greenyellow;
     grid-column-start: 2;
     grid-row-start: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    gap: 10px;
+}
+
+#news2::before {
+    content: "";
+    background-image: url(imagens/floresta.jpg);
+    background-size: cover;
+    position: absolute;
+    opacity: 0.75;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+#news2 h1 {
+    position: relative;
+    color: #ffffff;
+}
+
+#news2 p {
+    position: relative;
+    font-size: 13px;
+    color: #ffffff;
 }
 
 #news3 {
-    background-color: chocolate;
     grid-column-start: 1;
     grid-row-start: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    gap: 10px;
+}
+
+#news3::before {
+    content: "";
+    background-image: url(imagens/floresta.jpg);
+    background-size: cover;
+    position: absolute;
+    opacity: 0.75;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+#news3 h1 {
+    position: relative;
+    color: #ffffff;
+}
+
+#news3 p {
+    position: relative;
+    font-size: 13px;
+    color: #ffffff;
 }
 
 #news4 {
-    background-color: cadetblue;
     grid-column-start: 2;
     grid-row-start: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    gap: 10px;
 }
+
+#news4::before {
+    content: "";
+    background-image: url(imagens/floresta.jpg);
+    background-size: cover;
+    position: absolute;
+    opacity: 0.75;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+}
+
+#news4 h1 {
+    position: relative;
+    color: #ffffff;
+}
+
+#news4 p {
+    position: relative;
+    font-size: 13px;
+    color: #ffffff;
+}
+
 
 .newsRowWrapper {
     margin-top: 100px;
@@ -134,14 +270,32 @@ p {
 
 .selectedNews {
     margin-top: 100px;
-    background-color: #778899;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 60%;
     height: fit-content;
+    gap: 30px;
     
+}
+
+/* .mainNews img {
+    width: 100%;
+    height: 100%;
+}
+
+.gallery_product img {
+    width: 100%;
+    height: 80%;
+} */
+
+#title {
+    font-size: 30px;
+}
+
+#subTitle {
+    font-size: 15px;
 }
 
 .row {
