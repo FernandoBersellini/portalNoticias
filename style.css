@@ -9,10 +9,9 @@ header {
     height: 100px;
 }
 
-h1,h2,h5,p {
+h1,h2,h5,h4,p {
     font-family: "Montserrat", sans-serif;
     line-height: 21.09px;
-
 }
 
 h1,h2,h5 {
@@ -21,6 +20,13 @@ h1,h2,h5 {
 
 p {
     font-weight: 400;
+}
+
+a {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .wrapper-left {
@@ -63,41 +69,28 @@ p {
 .featuredNews {
     background-color: #778899;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    height: 50vh;
+    height: 75vh;
 }
 
-.mainNews {
+.mainNews1 {
     position: relative;
     height: 80%;
     width: 40%;
-    margin-left: 5%;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     gap: 10px;
 }
 
-.mainNews::before {
-    content: "";
-    background-image: url(imagens/floresta.jpg);
-    background-size: cover;
-    position: absolute;
-    opacity: 0.75;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    bottom: 0px;
-}
-
-.mainNews h1 {
+.mainNews1 h1 {
     position: relative;
     color: #ffffff;
 }
 
-.mainNews p {
+.mainNews1 p {
     position: relative;
     color: #ffffff;
 }
@@ -111,139 +104,6 @@ p {
     width: 40%; 
     margin-right: 5%;
 }
-
-#news1 {
-    grid-column-start: 1;
-    grid-row-start: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    gap: 10px;
-}
-
-#news1::before {
-    content: "";
-    background-image: url(imagens/floresta.jpg);
-    background-size: cover;
-    position: absolute;
-    opacity: 0.75;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    bottom: 0px;
-}
-
-#news1 h1 {
-    position: relative;
-    color: #ffffff;
-}
-
-#news1 p {
-    position: relative;
-    font-size: 13px;
-    color: #ffffff;
-}
-
-#news2 {
-    grid-column-start: 2;
-    grid-row-start: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    gap: 10px;
-}
-
-#news2::before {
-    content: "";
-    background-image: url(imagens/floresta.jpg);
-    background-size: cover;
-    position: absolute;
-    opacity: 0.75;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    bottom: 0px;
-}
-
-#news2 h1 {
-    position: relative;
-    color: #ffffff;
-}
-
-#news2 p {
-    position: relative;
-    font-size: 13px;
-    color: #ffffff;
-}
-
-#news3 {
-    grid-column-start: 1;
-    grid-row-start: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    gap: 10px;
-}
-
-#news3::before {
-    content: "";
-    background-image: url(imagens/floresta.jpg);
-    background-size: cover;
-    position: absolute;
-    opacity: 0.75;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    bottom: 0px;
-}
-
-#news3 h1 {
-    position: relative;
-    color: #ffffff;
-}
-
-#news3 p {
-    position: relative;
-    font-size: 13px;
-    color: #ffffff;
-}
-
-#news4 {
-    grid-column-start: 2;
-    grid-row-start: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    gap: 10px;
-}
-
-#news4::before {
-    content: "";
-    background-image: url(imagens/floresta.jpg);
-    background-size: cover;
-    position: absolute;
-    opacity: 0.75;
-    top: 0px;
-    right: 0px;
-    left: 0px;
-    bottom: 0px;
-}
-
-#news4 h1 {
-    position: relative;
-    color: #ffffff;
-}
-
-#news4 p {
-    position: relative;
-    font-size: 13px;
-    color: #ffffff;
-}
-
 
 .newsRowWrapper {
     margin-top: 100px;

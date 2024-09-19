@@ -1,7 +1,22 @@
 <?php
-    require('conexao.php');
+    require 'conexao.php';
+    require 'functions.php';
 
-    $sql = "SELECT * from noticias";
+    try {
+        $api = "https://api.openweathermap.org/data/2.5/weather?q=londrina&appid=e6bc32524494ab803c4199b709a0af34&lang=pt_br&units=metric";
+        $apiData = file_get_contents($api);
+        $weather = json_decode($apiData,true);
+        $icon = $weather['weather'][0]['icon'];
+        $iconName = $icon.'_t.png';
+    } catch(Exception $e) {
+        echo 'Mensagem:' . $e->getMessage();
+    }
+
+
+   
+    $rand = rand(1,2);    
+
+    $sql = "SELECT * from noticia WHERE idNoticia = '$rand'";
 
     $resultadoSql = mysqli_query($conexao,$sql);
     $row = mysqli_fetch_assoc($resultadoSql);
@@ -33,88 +48,69 @@
     </header>
     <div class="sub-header">
         <h1>Bem vindo a BBC.com</h1>
-        <h1>24 de maio de 2024</h1>
+        <h1>
+            <?php
+                date_default_timezone_set("America/Sao_Paulo");
+                echo date("d/m/Y");
+            ?>
+        </h1>
     </div>
-    <main>
+    <main class="d-flex flex-column gap-5">
         <div class="featuredNewsWrapper">
             <div class="featuredNews">
-                <div class="mainNews"> 
-                    <h1>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum deleniti quaerat ex. Ut debitis, quaerat, sint, odio tempore asperiores praesentium excepturi dolorum amet cumque iusto repellendus placeat numquam cupiditate autem!
-                    </h1>
-
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique quae sunt id vel fuga necessitatibus eius, reprehenderit sequi tempore harum cupiditate voluptates amet! Cumque expedita, amet assumenda illum totam autem!
-                    </p>
+                <div class="mainNews1"> 
+                   <img src="<?php echo $row['imagem']; ?>" alt="" style="height: 100%;">
+                   <h1>
+                        <?php
+                            echo $row['titulo'];
+                        ?>
+                   </h1>
+                   <p>
+                        <?php
+                            echo $row['resumo'];
+                        ?>
+                   </p>
+                   <button class="btn btn-primary" style="width: 25%; margin: auto;"><a href="lerNoticia.php?id=<?php echo $row['idNoticia']; ?>">Ler mais</a></button>
                 </div>
 
-                <div class="importantNews">
-                    <div id="news1">
-                        <h1>
-                            aaa
-                        </h1>
-                        <p>
-                            aaa
-                        </p>
-                    </div>
-                    <div id="news2">
-                        <h1>
-                            aaa
-                        </h1>
-                        <p>
-                            aaa
-                        </p>
-                    </div>
-                    <div id="news3">
-                        <h1>
-                            aaaaa
-                        </h1>
-                        <p>
-                            aaaaa
-                        </p>
-                    </div>
-                    <div id="news4">
-                        <h1>
-                            aaa
-                        </h1>
-                        <p>
-                            aaa
-                        </p>
-                    </div>
+                <div class="mainNews1"> 
+                   <img src="<?php echo $row['imagem']; ?>" alt="" style="height: 100%;">
+                   <h1>
+                        <?php
+                            echo $row['titulo'];
+                        ?>
+                   </h1>
+                   <p>
+                        <?php
+                            echo $row['resumo'];
+                        ?>
+                   </p>
+                   <button class="btn btn-primary" style="width: 25%; margin: auto;"><a href="">Ler mais</a></button>
                 </div>
+            </div> 
+        </div>
+        <div style="margin: auto" class="w-75 d-flex flex-column align-items-center gap-3">
+            <h1>Previsão do tempo</h1>
+            <div class="d-flex flex-column align-items-center p-5 rounded-2" style="background-color: #ECDFCC; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                <h2>
+                    <?php
+                        echo $weather['name'];
+                    ?>
+                </h2>
+                <img src="https://rodrigokamada.github.io/openweathermap/images/<?php echo $iconName ?>" alt="">
+                <h4 style="font-family: Montserrat, sans-serif; font-weight: bold;">
+                    <?php
+                        echo ucwords($weather['weather'][0]['description']);
+                    ?>
+                </h4>
+                <h4 style="font-family: Montserrat, sans-serif; font-weight: bold;">
+                    <?php
+                        echo $weather['main']['temp'];
+                    ?>
+                </h4>
             </div>
         </div>
-        <h1 style="margin-top: 100px; text-align: center;">Mais notícias</h1>
-        <div class="newsRowWrapper">
-            <div class="newsRow">
-                <?php 
-                    if (mysqli_num_rows($resultadoSql) > 0) {
-                        while ($row = mysqli_fetch_assoc($resultadoSql)) { ?>
-                            <div class="card " style="width: 18rem;">
-                                <img 
-                                    src="<?php echo $row['imagem']; ?>"
-                                    class="card-img-top"
-                                    alt="..."
-                                >
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <?php
-                                            echo $row['titulo']; 
-                                        ?>
-                                    </h>
-                                    <p class="card-text">
-                                        <?php
-                                            echo $row['resumo'];
-                                        ?>
-                                    </p>
-                                    <a href="lerNoticia.php?id=<?php echo $row['idNoticia']; ?>" class="btn btn-primary">Ler mais</a>
-                                </div>
-                            </div>
-                    <?php }
-                    }
-                ?>
-            </div>
-        </div>
+
     </main>
     <footer>
         <a href="inde.php">

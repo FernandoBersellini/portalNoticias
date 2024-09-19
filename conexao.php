@@ -2,6 +2,6 @@
     $servidor = "localhost";
     $usuario = "root";
     $senha = "";
-    $banco = "portalnoticias";
+    $banco = "portal_noticias";
 
     $conexao = mysqli_connect($servidor,$usuario,$senha,$banco);
