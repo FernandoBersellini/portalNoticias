@@ -3,7 +3,7 @@
 
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM noticias WHERE idNoticia = '$id'";
+    $sql = "SELECT * FROM noticia WHERE idNoticia = '$id'";
 
     $resultadoSql = mysqli_query($conexao,$sql);
 
@@ -33,7 +33,12 @@
     </header>
     <div class="sub-header">
         <h1>Bem vindo a BBC.com</h1>
-        <h1>24 de maio de 2024</h1>
+        <h1>
+            <?php
+                date_default_timezone_set("America/Sao_Paulo");
+                echo date("d/m/Y");
+            ?>
+        </h1>
     </div>
     <main>
         <div class="selectedNewsWrapper">

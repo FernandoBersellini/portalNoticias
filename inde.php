@@ -1,26 +1,14 @@
 <?php
     require 'conexao.php';
     require 'functions.php';
-
-    try {
-        $api = "https://api.openweathermap.org/data/2.5/weather?q=londrina&appid=e6bc32524494ab803c4199b709a0af34&lang=pt_br&units=metric";
-        $apiData = file_get_contents($api);
-        $weather = json_decode($apiData,true);
-        $icon = $weather['weather'][0]['icon'];
-        $iconName = $icon.'_t.png';
-    } catch(Exception $e) {
-        echo 'Mensagem:' . $e->getMessage();
-    }
-
-
-   
-    $rand = rand(1,2);    
-
-    $sql = "SELECT * from noticia WHERE idNoticia = '$rand'";
-
-    $resultadoSql = mysqli_query($conexao,$sql);
-    $row = mysqli_fetch_assoc($resultadoSql);
-
+    
+    session_start();
+    
+    $api = "https://api.openweathermap.org/data/2.5/weather?q=londrina&appid=e6bc32524494ab803c4199b709a0af34&lang=pt_br&units=metric";
+    $apiData = file_get_contents($api);
+    $weather = json_decode($apiData,true);
+    $icon = $weather['weather'][0]['icon'];
+    $iconName = $icon.'_t.png';
 ?>
 
 <!DOCTYPE html>
@@ -36,15 +24,7 @@
 </head>
 <body>
     <header>
-        <div class="wrapper-left">
-            <a href="inde.php">
-                <img src="imagens/BBC_logo_black_background-1.webp" alt="">
-            </a>
-            <div class="wrapper-login">
-                <img src="imagens/user.png" alt="">
-                <a href="login.php">Entrar</a>
-            </div>
-        </div>
+        <?php include 'templates/header.php'; ?>
     </header>
     <div class="sub-header">
         <h1>Bem vindo a BBC.com</h1>
@@ -59,33 +39,11 @@
         <div class="featuredNewsWrapper">
             <div class="featuredNews">
                 <div class="mainNews1"> 
-                   <img src="<?php echo $row['imagem']; ?>" alt="" style="height: 100%;">
-                   <h1>
-                        <?php
-                            echo $row['titulo'];
-                        ?>
-                   </h1>
-                   <p>
-                        <?php
-                            echo $row['resumo'];
-                        ?>
-                   </p>
-                   <button class="btn btn-primary" style="width: 25%; margin: auto;"><a href="lerNoticia.php?id=<?php echo $row['idNoticia']; ?>">Ler mais</a></button>
+                   <?php showMainNews() ?>
                 </div>
 
                 <div class="mainNews1"> 
-                   <img src="<?php echo $row['imagem']; ?>" alt="" style="height: 100%;">
-                   <h1>
-                        <?php
-                            echo $row['titulo'];
-                        ?>
-                   </h1>
-                   <p>
-                        <?php
-                            echo $row['resumo'];
-                        ?>
-                   </p>
-                   <button class="btn btn-primary" style="width: 25%; margin: auto;"><a href="">Ler mais</a></button>
+                   <?php showMainNews() ?>
                 </div>
             </div> 
         </div>
@@ -113,9 +71,7 @@
 
     </main>
     <footer>
-        <a href="inde.php">
-            <img src="imagens/BBC_logo_black_background-1.webp" alt="">
-        </a>
+       <?php include 'templates/footer.php' ?>
     </footer>
 </body>
 </html>
