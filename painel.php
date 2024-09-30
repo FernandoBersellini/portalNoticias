@@ -53,7 +53,7 @@
 
                             <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #433bff; height: 100%;  ">
                                 <h3>Cadastrar administrador</h3>
-                                <a href="alterarSenha.php">
+                                <a href="cadastrarADM.php">
                                     <button class="btn btn-secondary btn-lg">Cadastrar</button>
                                 </a>
                             </div>
@@ -62,14 +62,14 @@
                         <div class="row mb-5 gap-5" style="color: #ffffff;">
                             <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #433bff; height: 100%;  ">
                                 <h3>Cadastrar autor</h3>
-                                <a href="alterarSenha.php">
+                                <a href="cadastrarAutor.php">
                                     <button class="btn btn-secondary btn-lg">Alterar</button>
                                 </a>
                             </div>
 
                             <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #433bff; height: 100%;  ">
                                 <h3>Cadastrar notícia</h3>
-                                <a href="alterarSenha.php">
+                                <a href="cadastrarNoticia.php">
                                     <button class="btn btn-secondary btn-lg">Cadastrar</button>
                                 </a>
                             </div>
@@ -78,7 +78,7 @@
                         <div class="row mb-5 gap-5" style="color: #ffffff;">
                             <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #433bff; height: 100%;  ">
                                 <h3>Gerenciar usuários</h3>
-                                <a href="alterarSenha.php">
+                                <a href="gerenciarUsuarios.php">
                                     <button class="btn btn-secondary btn-lg">Alterar</button>
                                 </a>
                             </div>

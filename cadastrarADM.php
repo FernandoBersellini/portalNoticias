@@ -1,5 +1,6 @@
 <?php
-    require('painel.php');
+    session_start();
+    include 'functions.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,25 +12,47 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="stylePainel.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        * {
+            font-family: "Montserrat", sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <form action="" method="post" id="my-form" class="formPainel" onsubmit="return validarForm()">
-        <h1>Cadastrar novo ADM</h1>
-        <label for="">Nome</label>
-        <input type="text" name="nome" id="nome">
-        <label for="">Email</label>
-        <input type="text" name="email" id="email">
-        <label for="">Senha</label>
-        <input type="text" name="senha1" id="senha1" onkeyup="validarSenha()">
-        <span id="statusSenha1"></span>
-        <label for="">Digite a sua senha novamente</label>
-        <input type="text" name="senha2" id="senha2" onkeyup="validarSenhaDiferente()">
-        <span id="statusSenha2"></span>
-        <button name="btn-cadastrar">Cadastrar</button>
-    </form>
+    <?php include 'templates/header.php';?>
+    <main>
+        <div class="container d-flex flex-column align-items-center mt-5 gap-3">
+            <h1>Cadastrar novo ADM</h1>
+            <form class="d-flex flex-column gap-3 p-5 rounded-3" style="background-color: #c8c8c8;" action="" method="post" id="my-form" onsubmit="return validarForm()">
+                <div>
+                    <label class="form-label" for="">Nome</label>
+                    <input class="form-control" type="text" name="nome" id="nome">
+                </div>
+
+                <div>
+                    <label class="form-label" for="">Email</label>
+                    <input class="form-control" type="text" name="email" id="email">
+                </div>
+
+                <div>
+                    <label class="form-label" for="">Senha</label>
+                    <input class="form-control" type="text" name="senha1" id="senha1" onkeyup="validarSenha()">
+                    <span id="statusSenha1"></span>
+                </div>
+
+                <div>
+                    <label class="form-label" for="">Digite a sua senha novamente</label>
+                    <input class="form-control" type="text" name="senha2" id="senha2" onkeyup="validarSenhaDiferente()">
+                    <span id="statusSenha2"></span>
+                </div>
+                <button class="btn btn-primary" name="btn-cadastrar">Cadastrar</button>
+            </form>
+        </div>
+    </main>
     <script src="script.js"></script>
+    <?php include 'templates/footer.php';?>
 </body>
 </html>
 
@@ -37,14 +60,8 @@
     if(isset($_POST["btn-cadastrar"])){
         $nome = $_POST['nome'];
         $email = $_POST['email'];
-        $senha = password_hash($_POST["senha1"],PASSWORD_DEFAULT);
+        $senhaAdm = $_POST['senha2'];
 
-        $sql = "INSERT INTO adm (nome,email,senha) VALUES ('$nome','$email','$senha')";
-    
-        if (mysqli_query($conexao,$sql)) {
-            echo "<br> Cadastro realizado com sucesso";
-        } else {
-            echo "<br>Erro ao realizar o cadastro" .mysqli_error( $conexao );
-        }
+        createAdm($nome,$email,$senhaAd);
     }
 ?>

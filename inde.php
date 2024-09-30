@@ -1,14 +1,6 @@
 <?php
-    require 'conexao.php';
-    require 'functions.php';
-    
     session_start();
-    
-    $api = "https://api.openweathermap.org/data/2.5/weather?q=londrina&appid=e6bc32524494ab803c4199b709a0af34&lang=pt_br&units=metric";
-    $apiData = file_get_contents($api);
-    $weather = json_decode($apiData,true);
-    $icon = $weather['weather'][0]['icon'];
-    $iconName = $icon.'_t.png';
+    require 'functions.php';    
 ?>
 
 <!DOCTYPE html>
@@ -52,13 +44,12 @@
             <div class="d-flex flex-column align-items-center p-5 rounded-2" style="background-color: #ECDFCC; box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
                 <h2>
                     <?php
-                        echo $weather['name'];
+                        echo $location['results'][0]['name'];
                     ?>
                 </h2>
-                <img src="https://rodrigokamada.github.io/openweathermap/images/<?php echo $iconName ?>" alt="">
                 <h4 style="font-family: Montserrat, sans-serif; font-weight: bold;">
                     <?php
-                        echo ucwords($weather['weather'][0]['description']);
+                        echo $weather['hourly']['time'][0];
                     ?>
                 </h4>
                 <h4 style="font-family: Montserrat, sans-serif; font-weight: bold;">

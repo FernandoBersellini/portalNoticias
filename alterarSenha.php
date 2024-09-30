@@ -21,9 +21,9 @@
     <body>
         <?php include 'templates/header.php';?>
         <main>
-            <div class="container d-flex flex-column align-items-center p-5 mt-5 gap-3" style="background-color: #433bff; width: fit-content;">
+            <div class="container d-flex flex-column align-items-center p-5 mt-5 gap-3">
                 <h1>Mudar senha</h1>
-                <form class="d-flex flex-column" action="" method="post" onsubmit="return validarAlteracaoForm()" id="mudar-Senha">
+                <form class="d-flex flex-column p-5 rounded-3" style="background-color: #c8c8c8;" action="" method="post" onsubmit="return validarAlteracaoForm()" id="mudar-Senha">
                     <div class="mb-3">
                         <label class="form-label" for="">Nova senha</label><br>
                         <input class="form-control" type="text" name="novaSenha1" id="novaSenha1" onkeyup="validarAlteracao()"><br>                        
