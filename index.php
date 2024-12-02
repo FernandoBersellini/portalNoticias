@@ -1,12 +1,12 @@
 <?php
-    require 'functions.php';
-
-    $id = $_GET['id'];
+    session_start();
+    require 'functions.php';    
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" href="images/favicon.ico" type="image/ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -16,12 +16,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php include 'templates/header.php' ?>
-    <main>
-        <div class="selectedNewsWrapper">
-            <div class="selectedNews">
-                <?php showSelectedNews($id) ?>
-            </div>
+    <?php include 'templates/header.php'; ?>
+    <main class="d-flex flex-column gap-5">
+        <div class="container">
+            <div class="row mb-5 justify-content-around">
+                <div class="col-6 d-flex flex-column gap-3"> 
+                   <?php showMainNews() ?>
+                </div>
+
+                <div class="col-6 d-flex flex-column gap-3"> 
+                   <?php showMainNews() ?>
+                </div>
+            </div> 
         </div>
     </main>
     <?php include 'templates/footer.php' ?>

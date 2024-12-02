@@ -25,7 +25,7 @@
     <?php include 'templates/header.php'; ?>
     <main>
         <div class="container d-flex justify-content-center mt-5">
-            <form class="d-flex flex-column w-50 gap-3 p-4 rounded-3" style="background-color: #c8c8c8;" action="" method="post" class="formPainel" id="form-autor">
+            <form class="d-flex flex-column w-50 gap-3 p-4 rounded-3" style="background-color: #dddbff;" action="" method="post" class="formPainel" id="form-autor">
                 <h1 class="text-center">Cadastrar autor</h1>
                 <div>
                     <label class="form-label" for="">Nome</label>
@@ -46,7 +46,7 @@
                     <label class="form-label" for="">Telefone</label>
                     <input class="form-control" type="text" name="telefone" id="telefoneAutor">
                 </div>
-                <button class="btn btn-primary align-self-center" name="btn-cadastrar-autor">Cadastrar</button>
+                <button class="btn align-self-center" style="background-color: #443dff; color: #eae9fc;" name="btn-cadastrar-autor">Cadastrar</button>
             </form>
             <script src="script.js"></script>
         </div>

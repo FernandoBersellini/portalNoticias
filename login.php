@@ -13,13 +13,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <style>
-        * {font-family: "Montserrat", sans-serif;}
+        * {
+            font-family: "Montserrat", sans-serif;
+            color: #050316;
+        }
+        
+
     </style>
 </head>
 <body>
     <?php include 'templates/header.php'?>
     <main class="container mt-5">
-        <div class="container-md bg-dark text-white p-3 rounded-3 w-50">
+        <div class="container-md text-white p-3 rounded-3 w-50" style="background-color: #dddbff;">
             <form action="" method="post">
                 <h1 class="text-center mt-4">Logar</h1>
                 <div class="mt-5">
@@ -29,8 +34,8 @@
                     <input class="form-control" type="text" name="senha" id="senha" placeholder="Senha"><br><br>
                 </div>
                 <div class="d-grid gap-3">
-                    <button class="btn btn-primary btn-block" name="btn-entrar">Entrar</button>
-                    <button class="btn btn-primary btn-block" name="btn-voltar"><a href="inde.php">Voltar a página inicial</a></button>
+                    <button class="btn btn-block" name="btn-entrar" style="background-color: #443dff; color: #eae9fc;">Entrar</button>
+                    <button class="btn btn-block" name="btn-voltar" style="background-color: #443dff;"><a href="index.php">Voltar a página inicial</a></button>
                 </div>
             </form>
         </div>

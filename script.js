@@ -44,8 +44,53 @@ $(document).ready(function(){
     }),
 
     $('#telefoneAutor').mask('(00) 00000-0000');
+    $('#updateTelefoneAutor').mask('(00) 00000-0000');
     
     $('#form-autor').validate({
+        rules: {
+            nome: {
+                required: true,
+                minlength: 3
+            },
+
+            sobrenome: {
+                required: true,
+                minlength: 3
+            },
+
+            email: {
+                required: true,
+                email: true
+            },
+
+            telefone: {
+                required: true
+            }
+        },
+
+        messages: {
+            nome: {
+                required: "Insira o nome do autor",
+                minlength: "Nome não válido"
+            },
+
+            sobrenome: {
+                required: "Insira o sobrenome do autor",
+                minlength: "Sobrenome não válido"
+            },
+
+            email: {
+                required: "Insira o email do autor",
+                email: "Digite um email válido"
+            },
+
+            telefone: {
+                required: "Insira o telefone do autor"
+            }
+        }
+    }),
+
+    $('#updateAutor').validate({
         rules: {
             nome: {
                 required: true,
@@ -187,6 +232,7 @@ function validarAlteracaoForm(){
     }
 }
 
-// Validar form de cadastro de autor
+
+
 
 

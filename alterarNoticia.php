@@ -1,5 +1,6 @@
 <?php
-    require('conexao.php');
+    session_start();
+    require 'functions.php';
 
     $id = $_GET['id'];
 ?>
@@ -10,68 +11,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="stylePainel.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        * {font-family: "Montserrat", sans-serif;}
+    </style>
 </head>
-<body class="formSozinho">
-    <form action="" class="formPainel" method="post" enctype="multipart/form-data">
-        <h1>Alterar notícia</h1>
-        <label for="">Título</label><br><br>
-        <input type="text" name="titulo" id="titulo"><br><br>
-        <label for="">Resumo</label><br><br>
-        <textarea name="resumo" id="resumo"></textarea><br><br>
-        <label for="">Descrição</label><br><br>
-        <textarea name="descricao" id="descricao"></textarea><br><br>
-        <label for="">Foto</label>
-        <br><br>
-        <input type="file" name="foto">
-        <br><br>
-        <label for="">Autor da notícia</label>
-        <select name="autor" id="autor">
-            <?php
-                require_once('conexao.php');
-                $sqlAutor = "SELECT * FROM autor";
-                $resultadoAutor = mysqli_query($conexao,$sqlAutor);
-                if (mysqli_num_rows($resultadoAutor) > 0) {
-                    while($rowAutor = mysqli_fetch_array($resultadoAutor)) { ?>
-                        <option value="<?php echo $rowAutor['idAutor']?>">
-                            <?php echo $rowAutor['nome']?>
-                        </option>
+<body>
+    <?php include 'templates/header.php' ?>
+    <main>
+        <div class="container d-flex flex-column align-items-center gap-5">
+            <form action="" class="d-flex flex-column gap-3" method="post" enctype="multipart/form-data">
+                <h1 class="text-center">Alterar notícia</h1>
+                <div>
+                    <label class="form-label" for="">Título</label>
+                    <input class="form-control" type="text" name="titulo" id="titulo">
+                </div>
 
-                <?php }
-                }
-            ?>
-        </select>
-        <br><br>
-        <br><br>
-        <button name="btn-alterar-noticia">Cadastrar</button>
-    </form>
+                <div class="form-floating">
+                    <textarea class="form-control" name="resumo" id="resumo"></textarea>
+                    <label class="form-label" for="">Resumo</label>
+                </div>
 
+                <div class="form-floating">
+                    <textarea class="form-control" name="descricao" id="descricao"></textarea>
+                    <label class="form-label" for="">Descrição</label>
+                </div>
+
+                <div>
+                    <label class="form-label" for="">Foto</label>
+                    <input class="form-control" type="file" name="foto">
+                </div>
+
+                <div>
+                    <label class="form-label" for="">Autor da notícia</label>
+                    <select class="form-control" name="autor" id="autor">
+                        <?php
+                           selectAuthor();
+                        ?>
+                    </select>
+                </div>
+                <button class="btn btn-primary align-self-center" name="btn-alterar-noticia">Alterar</button>
+            </form>
+            
+            <a href="gerenciarUsuarios.php">
+                <button class="btn btn-primary">Voltar para o gerenciamento</button>
+            </a>
+        </div>
+    </main>
+    <?php include 'templates/footer.php' ?>
+</body>
 <?php
     if(isset($_POST["btn-alterar-noticia"])){
         $titulo = $_POST['titulo'];
         $resumo = $_POST['resumo'];
         $descricao = $_POST['descricao'];
         $foto = $_FILES['foto']['name'];
-        $fotoFileType = pathinfo($foto, PATHINFO_EXTENSION);
         $autor = $_POST['autor'];
 
-        if($fotoFileType != "jpg" && $fotoFileType != "jpeg" && $fotoFileType != "png" && $fotoFileType != "gif") {
-            echo "O arquivo não é uma foto";
+        if (!verifyImage($foto)) {
+            ?>
+                <script>
+                    alert('O formato de arquivo é incompatível')
+                </script>
+            <?php
         } else {
-            $pasta = "imagensBanco/";
-            $idUnico = uniqid();
-            $arquivoFoto = $pasta. "img". $idUnico.".". $fotoFileType;
-            move_uploaded_file($_FILES["foto"]['tmp_name'],$arquivoFoto);
-
-            $sql = "UPDATE noticias 
-                    SET titulo ='$titulo', resumo ='$resumo', descricao ='$descricao', imagem ='$arquivoFoto', idAutor ='$autor'
-                    WHERE idNoticia = $id";
-                    
-            if (mysqli_query($conexao,$sql)) {
-                echo "Atualizado com sucesso";
-                header("Refresh: 2; URL=editarNoticia.php");
-            }
+            updateNoticias($titulo,$resumo,$descricao,moveFile($foto),$autor,$id);
         }
     }
 

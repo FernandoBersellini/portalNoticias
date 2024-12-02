@@ -22,7 +22,7 @@
 
     <main>
         <div class="mt-5 container d-flex justify-content-center">
-            <form action="" method="post" enctype="multipart/form-data" id="form-noticia" class="d-flex flex-column gap-3 p-5 rounded-3" style="background-color: #c8c8c8;">
+            <form action="" method="post" enctype="multipart/form-data" id="form-noticia" class="d-flex flex-column gap-3 p-5 rounded-3" style="background-color: #dddbff;">
                 <h1 class="text-center">Cadastrar notícia</h1>
                 <div>
                     <label class="form-label" for="">Título</label>
@@ -52,7 +52,7 @@
                         ?>
                     </select>
                 </div>
-                <button class="btn btn-primary align-self-center" name="btn-cadastrar-noticia">Cadastrar</button>
+                <button class="btn align-self-center" style="background-color: #443dff; color: #eae9fc;" name="btn-cadastrar-noticia">Cadastrar</button>
             </form>
         </div>
     </main>

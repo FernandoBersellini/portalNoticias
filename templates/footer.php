@@ -3,7 +3,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <footer>
-    <a href="inde.php">
-        <img src="imagens/BBC_logo_black_background-1.webp" alt="">
+    <a href="index.php">
+        <img src="imagens/night.png" alt="">
     </a>
 </footer>

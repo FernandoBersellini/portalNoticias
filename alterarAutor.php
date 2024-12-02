@@ -1,6 +1,6 @@
 <?php
-    require('conexao.php');
-
+    session_start();
+    require 'functions.php';
     $id = $_GET['id'];
 ?>
 
@@ -10,23 +10,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="stylePainel.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    
+    <style>
+        * {font-family: "Montserrat", sans-serif;}
+    </style>
 </head>
-<body class="formSozinho">
-    <form action="" method="post" class="formPainel">
-            <h1>Editar autor</h1>
-            <label for="">Nome</label><br>
-            <input type="text" name="nome" id="nome"><br><br>
-            <label for="">Sobrenome</label><br>
-            <input type="text" name="sobrenome" id="sobrenome"><br><br>
-            <label for="">Email</label><br>
-            <input type="text" name="email" id="email"><br><br>
-            <label for="">Telefone</label><br>
-            <input type="text" name="telefone" id="telefoneAutor"><br><br>
-            <button name="btn-alterar-autor">Alterar</button>
+<body>
+    <?php include 'templates/header.php' ?>
+    <main>
+        <div class="container d-flex flex-column align-items-center gap-5">
+            <form action="" method="post" class="d-flex flex-column gap-3" id="updateAutor">
+                <h1 class="text-center">Editar autor</h1>
+                <div>
+                    <label for="" class="form-label">Nome</label>
+                    <input class="form-control" type="text" name="nome" id="nome">
+                </div>
+
+                <div>
+                    <label class="form-label" for="">Sobrenome</label>
+                    <input class="form-control" type="text" name="sobrenome" id="sobrenome">
+                </div>
+
+                <div>
+                    <label class="form-label" for="">Email</label>
+                    <input class="form-control" type="text" name="email" id="email">
+                </div>
+
+                <div>
+                    <label class="form-label" for="">Telefone</label><br>
+                    <input class="form-control" type="text" name="telefone" id="updateTelefoneAutor">
+                </div>
+                <button class="btn btn-primary" name="btn-alterar-autor">Alterar</button>
             </form>
-            <script src="script.js"></script>
+            <a href="gerenciarUsuarios.php">
+                <button class="btn btn-primary">Retornar para o gerenciamento</button>
+            </a>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <?php include 'templates/footer.php' ?>
 </body>
 </html>
 
@@ -37,12 +65,5 @@
         $email = $_POST['email'];
         $telefone = $_POST['telefone'];
 
-        $sql = "UPDATE autor
-                SET nome='$nome', sobrenome='$sobrenome', email='$email', telefone='$telefone'
-                WHERE idAutor = $id";
-
-        if(mysqli_query($conexao,$sql)) {
-            echo "Alterado com sucesso";
-            header("Refresh: 2; URL=editarAutor.php");
-        }
+        updateAutor($nome,$sobrenome,$email,$telefone,$id);
     }   

@@ -1,7 +1,6 @@
 <?php
     session_start();
     include_once 'conexao.php';
-    $_SESSION['teste'] = "teste";
 
     if(isset($_SESSION['email'])) {
         $email = $_SESSION['email'];
@@ -30,65 +29,61 @@
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
             <style>
-                * {font-family: "Montserrat", sans-serif;}
-                
-
+                * {
+                    font-family: "Montserrat", sans-serif;
+                }
             </style>
         </head>
-        <body style="min-height: 100vh; display: flex; flex-direction: column;">
-            <header>
-                <?php include 'templates/header.php' ?>
-            </header>
+        <body style="min-height: 100vh; display: flex; flex-direction: column; background-color: #fbfbfe;">
+            <?php include 'templates/header.php' ?>
             <main class="mt-5">
                 <div class="container d-flex flex-column align-items-center justify-content-center">
                     <h1>Seja bem vindo, <?php echo $_SESSION['name'] ?></h1>
-                    <div class="container mt-5">
-                        <div class="row mb-5 gap-5" style="color: #ffffff;">
-                            <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #433bff; height: 100%;  ">
+                    <div class="container mt-5" style="color: #040316;">
+                        <div class="row mb-5 gap-5">
+                            <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #dddbff; height: 100%;  ">
                                 <h3>Alterar senha</h3>
                                 <a href="alterarSenha.php">
-                                    <button class="btn btn-secondary btn-lg">Alterar</button>
+                                    <button class="btn btn-lg" style="background-color: #443dff;">Alterar</button>
                                 </a>
                             </div>
 
-                            <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #433bff; height: 100%;  ">
+                            <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #dddbff; height: 100%;  ">
                                 <h3>Cadastrar administrador</h3>
                                 <a href="cadastrarADM.php">
-                                    <button class="btn btn-secondary btn-lg">Cadastrar</button>
+                                    <button class="btn btn-lg" style="background-color: #443dff;">Cadastrar</button>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="row mb-5 gap-5" style="color: #ffffff;">
-                            <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #433bff; height: 100%;  ">
+                        <div class="row mb-5 gap-5">
+                            <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #dddbff; height: 100%;  ">
                                 <h3>Cadastrar autor</h3>
                                 <a href="cadastrarAutor.php">
-                                    <button class="btn btn-secondary btn-lg">Alterar</button>
+                                    <button class="btn btn-lg" style="background-color: #443dff;">Alterar</button>
                                 </a>
                             </div>
 
-                            <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #433bff; height: 100%;  ">
+                            <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #dddbff; height: 100%;  ">
                                 <h3>Cadastrar notícia</h3>
                                 <a href="cadastrarNoticia.php">
-                                    <button class="btn btn-secondary btn-lg">Cadastrar</button>
+                                    <button class="btn btn-lg" style="background-color: #443dff;">Cadastrar</button>
                                 </a>
                             </div>
                         </div>
 
-                        <div class="row mb-5 gap-5" style="color: #ffffff;">
-                            <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #433bff; height: 100%;  ">
+                        <div class="row mb-5 gap-5">
+                            <div class="d-flex flex-column align-items-center gap-3 p-5 col rounded-1" style="background-color: #dddbff; height: 100%;  ">
                                 <h3>Gerenciar usuários</h3>
                                 <a href="gerenciarUsuarios.php">
-                                    <button class="btn btn-secondary btn-lg">Alterar</button>
+                                    <button class="btn btn-lg" style="background-color: #443dff;">Alterar</button>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
-            <footer>
-                <?php include 'templates/footer.php'?>
-            </footer>
+            <?php include 'templates/footer.php'?>
         </body>
     </html>
     <?php    

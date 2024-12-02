@@ -17,6 +17,7 @@
     <style>
         * {
             font-family: "Montserrat", sans-serif;
+            color: #050316;
         }
     </style>
 </head>
@@ -25,7 +26,7 @@
     <main>
         <div class="container d-flex flex-column align-items-center mt-5 gap-3">
             <h1>Cadastrar novo ADM</h1>
-            <form class="d-flex flex-column gap-3 p-5 rounded-3" style="background-color: #c8c8c8;" action="" method="post" id="my-form" onsubmit="return validarForm()">
+            <form class="d-flex flex-column gap-3 p-5 rounded-3" style="background-color: #dddbff;" action="" method="post" id="my-form" onsubmit="return validarForm()">
                 <div>
                     <label class="form-label" for="">Nome</label>
                     <input class="form-control" type="text" name="nome" id="nome">
@@ -47,7 +48,7 @@
                     <input class="form-control" type="text" name="senha2" id="senha2" onkeyup="validarSenhaDiferente()">
                     <span id="statusSenha2"></span>
                 </div>
-                <button class="btn btn-primary" name="btn-cadastrar">Cadastrar</button>
+                <button class="btn" style="background-color: #443dff;" name="btn-cadastrar">Cadastrar</button>
             </form>
         </div>
     </main>
